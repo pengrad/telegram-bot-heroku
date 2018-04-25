@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+task stage(type: Copy) {
+    from sourceSets.main.runtimeClasspath
+    into 'build/staging'
+}
+stage.dependsOn build
+
+dependencies {
+    compile 'com.sparkjava:spark-core:2.7.2'
+    compile 'com.github.pengrad:java-telegram-bot-api:3.6.0'
+}
