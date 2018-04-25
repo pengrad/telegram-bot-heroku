@@ -31,7 +31,9 @@ public class Main {
         for (BotHandler bot : bots) {
             String token = bot.getToken();
             post("/" + token, bot);
-            bot.getBot().execute(new SetWebhook().url(appUrl + "/" + token));
+            if (appUrl != null) {
+                bot.getBot().execute(new SetWebhook().url(appUrl + "/" + token));
+            }
         }
 
         // can declare other routes
