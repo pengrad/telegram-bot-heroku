@@ -35,6 +35,7 @@ public class Main {
         }
 
         // can declare other routes
+        get("/", (req, res) -> "index page");
         get("/hello", (req, res) -> "Hello World");
         post("/test", new Test());
         get("/test", new Test());
